@@ -52,3 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// paket
+$route['paket/index'] = 'PaketController/index';
+$route['paket/add'] = 'PaketController/add';
+$route['paket/save'] = 'PaketController/save';
+$route['paket/edit/(:any)'] = 'PaketController/edit/$1';
+$route['paket/update/(:any)'] = 'PaketController/update/$1';
+$route['paket/delete/(:any)'] = 'PaketController/delete/$1';

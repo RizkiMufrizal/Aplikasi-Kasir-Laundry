@@ -14,7 +14,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?= base_url('/') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -25,7 +25,7 @@
             <!-- Nav Item - Charts -->
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?= base_url('/index.php/paket/index') ?>">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Data Paket</span></a>
             </li>
