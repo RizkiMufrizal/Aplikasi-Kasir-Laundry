@@ -40,6 +40,7 @@
                         <?php foreach ($customers as $customer): ?>
                         <tr>
                             <td><?php echo $customer->id ?></td>
+                            <td><?php echo $customer->nama ?></td>
                             <td><?php echo $customer->alamat ?></td>
                             <td><?php echo $customer->no_hp ?></td>
                             <td>
