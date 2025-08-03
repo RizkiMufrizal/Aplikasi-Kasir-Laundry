@@ -31,7 +31,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?= base_url('/index.php/customer/index') ?>">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Data Customer</span></a>
             </li>

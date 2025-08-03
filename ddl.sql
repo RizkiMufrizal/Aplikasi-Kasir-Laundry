@@ -13,3 +13,10 @@ CREATE TABLE tb_paket (
     nama varchar(50) NOT NULL ,
     harga decimal NOT NULL
 );
+
+CREATE TABLE tb_customer (
+    id int AUTO_INCREMENT NOT NULL primary key,
+    nama varchar(50)  NOT NULL ,
+    alamat varchar(100)  NOT NULL ,
+    no_hp varchar(15)  NOT NULL
+);

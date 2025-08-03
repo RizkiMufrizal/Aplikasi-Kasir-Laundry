@@ -60,3 +60,11 @@ $route['paket/save'] = 'PaketController/save';
 $route['paket/edit/(:any)'] = 'PaketController/edit/$1';
 $route['paket/update/(:any)'] = 'PaketController/update/$1';
 $route['paket/delete/(:any)'] = 'PaketController/delete/$1';
+
+// customer
+$route['customer/index'] = 'CustomerController/index';
+$route['customer/add'] = 'CustomerController/add';
+$route['customer/save'] = 'CustomerController/save';
+$route['customer/edit/(:any)'] = 'CustomerController/edit/$1';
+$route['customer/update/(:any)'] = 'CustomerController/update/$1';
+$route['customer/delete/(:any)'] = 'CustomerController/delete/$1';
