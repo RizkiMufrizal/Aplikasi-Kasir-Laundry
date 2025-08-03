@@ -68,3 +68,6 @@ $route['customer/save'] = 'CustomerController/save';
 $route['customer/edit/(:any)'] = 'CustomerController/edit/$1';
 $route['customer/update/(:any)'] = 'CustomerController/update/$1';
 $route['customer/delete/(:any)'] = 'CustomerController/delete/$1';
+
+// oredr
+$route['order/search'] = 'OrderController/searchOrderNo';
