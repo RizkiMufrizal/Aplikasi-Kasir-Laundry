@@ -1,8 +1,9 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class Auth extends CI_Controller
+{
 
 	public function login()
 	{
@@ -12,14 +13,14 @@ class Auth extends CI_Controller {
 		$rules = $this->user->rules();
 		$this->form_validation->set_rules($rules);
 
-		if($this->form_validation->run() == FALSE){
+		if ($this->form_validation->run() == FALSE) {
 			return $this->load->view('login');
 		}
 
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 
-		if($this->user->login($username, $password)){
+		if ($this->user->login($username, $password)) {
 			redirect('dashboard');
 		} else {
 			$this->session->set_flashdata('message_login_error', 'Login Gagal, pastikan username dan password benar!');

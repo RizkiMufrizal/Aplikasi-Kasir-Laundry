@@ -28,7 +28,7 @@ CREATE TABLE tb_order (
     tanggal_transaksi date  NOT NULL ,
     tanggal_selesai_cuci date  NOT NULL ,
     sudah_selesai boolean  NOT NULL ,
-    customer_id int  NOT NULL
+    customer_id int NOT NULL
 );
 
 CREATE TABLE tb_order_detail (
@@ -36,11 +36,15 @@ CREATE TABLE tb_order_detail (
     uang decimal  NOT NULL ,
     jumlah int  NOT NULL ,
     satuan_berat varchar(5)  NOT NULL ,
-    order_id int  NOT NULL
+    order_id int NOT NULL,
+	paket_id int not null
 );
 
 ALTER TABLE `tb_order` ADD CONSTRAINT `fk_Order_customer_id` FOREIGN KEY(`customer_id`)
 REFERENCES `tb_customer` (`id`);
+
+ALTER TABLE `tb_order_detail` ADD CONSTRAINT `fk_Order_paket_id` FOREIGN KEY(`paket_id`)
+	REFERENCES `tb_paket` (`id`);
 
 ALTER TABLE `tb_order_detail` ADD CONSTRAINT `fk_OrderDetail_order_id` FOREIGN KEY(`order_id`)
 REFERENCES `tb_order` (`id`);

@@ -1,9 +1,11 @@
 <?php
-class User extends CI_Model {
+
+class User extends CI_Model
+{
 
 	const SESSION_KEY = 'user_id';
 
-    	public function rules()
+	public function rules()
 	{
 		return [
 			[
@@ -19,40 +21,45 @@ class User extends CI_Model {
 		];
 	}
 
-    function getAll() {
-        $query = $this->db->get('tb_user');
-        return $query->result();
-    }
+	function getAll()
+	{
+		$query = $this->db->get('tb_user');
+		return $query->result();
+	}
 
-    public function getById($id) {
-        return $this->db->get_where('tb_user', ["id" => $id])->row();
-    }
+	public function getById($id)
+	{
+		return $this->db->get_where('tb_user', ["id" => $id])->row();
+	}
 
-    function save($data) {
-        $val = array(
-            'username' => $data['username'],
-            'password' => $data['password']
-      );
-        $this->db->insert('tb_user', $val);
-    }
+	function save($data)
+	{
+		$val = array(
+			'username' => $data['username'],
+			'password' => $data['password']
+		);
+		$this->db->insert('tb_user', $val);
+	}
 
-    function update($id, $data) {
-        $val = array(
-            'username' => $data['username'],
-            'password' => $data['password']
-        );
-        $this->db->where('id', $id);
-        $this->db->update('tb_user', $val);
-    }
+	function update($id, $data)
+	{
+		$val = array(
+			'username' => $data['username'],
+			'password' => $data['password']
+		);
+		$this->db->where('id', $id);
+		$this->db->update('tb_user', $val);
+	}
 
-    function delete($id) {
-        $val = array(
-            'id'=> $id
-        );
-        $this->db->delete('tb_user', $val);
-    }
+	function delete($id)
+	{
+		$val = array(
+			'id' => $id
+		);
+		$this->db->delete('tb_user', $val);
+	}
 
-    public function login($username, $password)
+	public function login($username, $password)
 	{
 		$this->db->where('username', $username);
 		$query = $this->db->get('tb_user');
