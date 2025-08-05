@@ -4,14 +4,24 @@ class Order extends CI_Model
 {
 	public function getByOrderNo($orderNo)
 	{
-		$this->db
-			->select('o.id as order_id, o.no_order, o.total_uang, o.tanggal_transaksi, o.tanggal_selesai_cuci, o.sudah_selesai, c.nama, i.uang, i.jumlah, i.satuan_berat')
+		$query = $this->db
+			->select('o.id as id, o.no_order, o.total_uang, o.tanggal_transaksi, o.tanggal_selesai_cuci, o.sudah_selesai, c.nama')
 			->from('tb_order o')
-			->join('tb_order_detail i', 'i.order_id = o.id')
 			->join('tb_customer c', 'c.id = o.customer_id')
-			->where('no_order', $orderNo);
-		$query = $this->db->get();
-		return $query->row();
+			->where('o.no_order', $orderNo)
+			->get();
+
+		$order = $query->row();
+		if ($order) {
+			$order->items = $this->db
+				->select('o.uang, o.jumlah, o.satuan_berat, p.nama')
+				->from('tb_order_detail o')
+				->join('tb_paket p', 'p.id = o.paket_id')
+				->where('order_id', $order->id)
+				->get()
+				->result_array();
+		}
+		return $order;
 	}
 
 	public function getAll()

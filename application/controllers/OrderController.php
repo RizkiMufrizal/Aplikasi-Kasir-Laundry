@@ -18,16 +18,11 @@ class OrderController extends CI_Controller
 		$this->load->view('order/search_order_no');
 	}
 
-	public function resultSearchOrderNo($orderNo)
+	public function resultSearchOrderNo()
 	{
-		$dataOrder = $this->order->getByOrderNo($orderNo);
-		if (!$dataOrder) {
-			//data tidak tersedia
-		}
-		if ($dataOrder['sudah_selesai'] == false) {
-			//belum selesai
-		}
-		//sudah selesai
+		$orderNo = $this->input->post('order_no');
+		$dataOrder['data'] = $this->order->getByOrderNo($orderNo);
+		$this->load->view('order/search_order_no', $dataOrder);
 	}
 
 	public function index()
