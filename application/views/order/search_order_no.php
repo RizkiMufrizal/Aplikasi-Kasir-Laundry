@@ -19,7 +19,7 @@
 	  <p></p>
 	  <div class="row justify-content-center">
 		  <div class="col-md-8 col-lg-6">
-			  <?php if($data) { ?>
+			  <?php if(isset($data)) { ?>
 			  <table class="table table-condensed table-striped">
 				  <thead>
 				  <tr>
